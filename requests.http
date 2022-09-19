@@ -1,0 +1,39 @@
+
+###
+POST http://localhost:5000/api/purchase HTTP/1.1
+Content-Type: application/json
+
+{ 
+    "DueDate": "Fecha actual: 2020-10-01", 
+    "DocNumber": "1053811422", 
+    "Status": "Payable", 
+    "Line": [ 
+    { 
+        "Amount": 500, 
+        "DetailType": "ExpenseDetail", 
+        "ExpenseDetail": { 
+            "Customer": { 
+                "value": "ABC123", 
+                "name": "Sample Customer", 
+                "Ref": { 
+                    "value": "DEF234", 
+                    "name": "Sample Construction" 
+                } 
+            }, 
+            "Account": { 
+                "value": "EFG345", 
+                "name": "Fuel" 
+            }, 
+            "LineStatus": "Billable" 
+        } 
+    }   
+    ], 
+    "Vendor": {     
+        "value": "GHI456", 
+        "name": "Sample Bank" 
+    }, 
+    "TotalAmt": 1990.19 
+} 
+###
+GET http://localhost:5000/api/list HTTP/1.1
+
